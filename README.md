@@ -89,6 +89,37 @@ F H <BR>
 ['0', '1', '2', '3', '4']
 
 <hr>
+
+<h3>program </h3>
+from collections import deque
+from collections import defaultdict 
+def dfs(graph, start, visited, path):
+    path.append(start)
+    visited[start] = True
+
+    for neighbour in graph[start]:
+        if not visited[neighbour]:
+            dfs(graph, neighbour, visited, path)
+
+    return path
+graph=defaultdict(list) 
+n,e=map(int,input().split()) 
+for i in range(e):     
+    u,v=map(str,input().split())    
+    graph[u].append(v)    
+    graph[v].append(u)
+    #print(graph) 
+start='A' 
+visited=defaultdict(bool) 
+path=[] 
+traversedpath=dfs(graph,start,visited,path) 
+print(traversedpath) 
+
+<h3>Output</h3>
+<img width="983" height="746" alt="Screenshot 2026-07-29 154354" src="https://github.com/user-attachments/assets/ae331be1-2f3b-4f81-984d-29af704d250f" />
+
+<img width="1306" height="686" alt="Screenshot 2026-07-29 155351" src="https://github.com/user-attachments/assets/18b14e99-7a79-4845-943b-77686f43fb76" />
+
 <h3>Result:</h3>
 <hr>
 <p>Thus,a Graph was constructed and implementation of Depth First Search for the same graph was done successfully.</p>
